@@ -4,6 +4,7 @@
     "python": "venv/bin/python3"
   },
   "cSpell.words": [
+    "asgi",
     "socketio"
   ]
 }
