@@ -11,3 +11,8 @@ def connect(sid, environment):
 def disconnect(sid):
   print(sid, 'disconnected')
 
+@sio.event
+async def sum(sid, data):
+  print(sid, data)
+  result = data['numbers'][0] + data['numbers'][1]
+  await sio.emit('sum_result', { 'result': result }, to=sid)
