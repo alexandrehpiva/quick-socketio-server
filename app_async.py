@@ -3,15 +3,12 @@ import socketio
 sio = socketio.AsyncServer(cors_allowed_origins='*', async_mode='asgi')
 app = socketio.ASGIApp(sio)
 
-# Callback to be executed on receive task response
-def task_callback(data):
-  print('task response: ', data)
-
 # Send an event to the client without receive anything before
 # by using start_background_task in connect event
 async def task(sid):
   await sio.sleep(2)
-  await sio.emit('numbers', {'numbers': [3, 4]}, callback=task_callback)
+  result = await sio.call('numbers', {'numbers': [3, 4]}, to=sid)
+  print('task response: ', result)
 
 @sio.event
 def connect(sid, environment):

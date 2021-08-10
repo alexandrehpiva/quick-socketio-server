@@ -3,15 +3,12 @@ import socketio
 sio = socketio.Server(cors_allowed_origins='*')
 app = socketio.WSGIApp(sio)
 
-# Callback to be executed on receive task response
-def task_callback(result):
-  print('task response: ', result)
-
 # Send an event to the client without receive anything before
 # by using start_background_task in connect event
 def task(sid):
   sio.sleep(2)
-  sio.emit('numbers', {'numbers': [3, 4]}, callback=task_callback)
+  result = sio.call('numbers', {'numbers': [3, 4]}, to=sid)
+  print('task response: ', result)
 
 @sio.event
 def connect(sid, environment):
