@@ -1,5 +1,7 @@
 # Python socket.io server project
 
+### From: https://www.youtube.com/watch?v=tHQvTOcx_Ys&ab_channel=MiguelGrinberg
+
 - Run the server without websocket enabled
 ```bash
 gunicorn --threads 50 app:app
