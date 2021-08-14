@@ -2,6 +2,12 @@
 
 ### From: https://www.youtube.com/watch?v=tHQvTOcx_Ys&ab_channel=MiguelGrinberg
 
+- Activate virtual environment
+
+```bash
+. venv/bin/activate
+```
+
 - Run the server without websocket enabled
 
 ```bash
