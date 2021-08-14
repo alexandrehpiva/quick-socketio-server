@@ -5,6 +5,9 @@
   },
   "cSpell.words": [
     "asgi",
-    "socketio"
+    "gunicorn",
+    "socketio",
+    "uvicorn",
+    "venv"
   ]
 }
